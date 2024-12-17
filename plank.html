@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girl Doing Plank Workout (Detailed)</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .scene {
+            position: relative;
+            width: 400px;
+            height: 200px;
+        }
+        .girl {
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            top: 50px;
+            left: 50px;
+        }
+        .body {
+            position: absolute;
+            width: 200px;
+            height: 40px;
+            background-color: #ff9999;
+            border-radius: 20px;
+            top: 0;
+            left: 50px;
+            animation: breathe 2s infinite ease-in-out;
+        }
+        .head {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            background-color: #ffcccc;
+            border-radius: 25px;
+            top: -40px;
+            left: 20px;
+        }
+        .face {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            top: 30px;
+            left: 5px;
+            border-radius: 0 0 20px 20px;
+            border-bottom: 2px solid #663300;
+        }
+        .eye {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #663300;
+            border-radius: 50%;
+            top: 5px;
+        }
+        .eye.left { left: 8px; }
+        .eye.right { right: 8px; }
+        .hair {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            background-color: #663300;
+            border-radius: 30px 30px 0 0;
+            top: -50px;
+            left: 15px;
+        }
+        .arm {
+            position: absolute;
+            width: 20px;
+            height: 80px;
+            background-color: #ffcccc;
+            top: 0;
+        }
+        .arm.left {
+            left: 40px;
+            
+        }
+        .arm.right {
+            right: 40px;
+           
+        }
+        .hand {
+            position: absolute;
+            width: 25px;
+            height: 15px;
+            background-color: #ffcccc;
+            border-radius: 10px;
+            top: 70px;
+        }
+        .hand.left {
+            left: 37px;
+        }
+        .hand.right {
+            left: 0px;
+        }
+        .leg {
+            position: absolute;
+            width: 105px;
+            height: 20px;
+            background-color: #4a4a4a; /* Pants color */
+            top: 20px;
+        }
+        .leg.left {
+            
+            top:0;
+            left:250px
+        }
+        .leg.right {
+            top:0;
+            left:250px
+        }
+        .foot {
+            position: absolute;
+            width: 35px;
+            height: 15px;
+            background-color: #ffcccc;
+            border-radius: 10px;
+            top: 110px;
+        }
+        .foot.left {
+            left: 80px;
+        }
+        .foot.right {
+            right: 80px;
+        }
+        .mat {
+            position: absolute;
+            width: 350px;
+            height: 10px;
+            background-color: #4CAF50;
+            bottom: 0;
+            left: 25px;
+            border-radius: 5px;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.98); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="girl">
+            <div class="body"></div>
+            <div class="head">
+                <div class="face">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+            </div>
+            <div class="hair"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <div class="hand left"></div>
+            <div class="hand right"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="foot left"></div>
+            <div class="foot right"></div>
+        </div>
+        <div class="mat"></div>
+    </div>
+</body>
+</html>
+
+
+
