@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Christmas Tree</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a2d40;
+            overflow: hidden;
+        }
+
+        .scene {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .layer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: solid transparent;
+            border-right: solid transparent;
+            border-bottom: solid #0f5132;
+        }
+
+        .layer:nth-child(1) { border-left-width: 140px; border-right-width: 140px; border-bottom-width: 80px; transform: translateX(-140px); bottom: 0; }
+        .layer:nth-child(2) { border-left-width: 120px; border-right-width: 120px; border-bottom-width: 70px; transform: translateX(-120px); bottom: 70px; }
+        .layer:nth-child(3) { border-left-width: 100px; border-right-width: 100px; border-bottom-width: 60px; transform: translateX(-100px); bottom: 130px; }
+        .layer:nth-child(4) { border-left-width: 80px; border-right-width: 80px; border-bottom-width: 50px; transform: translateX(-80px); bottom: 180px; }
+        .layer:nth-child(5) { border-left-width: 60px; border-right-width: 60px; border-bottom-width: 40px; transform: translateX(-60px); bottom: 220px; }
+        .layer:nth-child(6) { border-left-width: 40px; border-right-width: 40px; border-bottom-width: 30px; transform: translateX(-40px); bottom: 250px; }
+        .layer:nth-child(7) { border-left-width: 20px; border-right-width: 20px; border-bottom-width: 20px; transform: translateX(-20px); bottom: 270px; }
+
+        .star {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid gold;
+            filter: drop-shadow(0 0 10px gold);
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        .star::before,
+        .star::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -20px;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 40px solid gold;
+        }
+
+        .star::before { transform: rotate(35deg); }
+        .star::after { transform: rotate(-35deg); }
+
+        .ball {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: lightBulb 1s infinite alternate;
+            z-index: 10;
+        }
+
+        .ribbon {
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff0000,
+                #ff0000 8px,
+                #ffffff 8px,
+                #ffffff 16px
+            );
+            transform: rotate(-5deg);
+            z-index: 5;
+        }
+
+        .gifts {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .gift {
+            width: 24px;
+            height: 32px;
+            background-color: #ff4d4d;
+            margin: 0 4px 4px;
+            position: relative;
+            animation: sway 3s ease-in-out infinite alternate;
+        }
+
+        .gift::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background-color: #ffeb3b;
+            top: 12px;
+        }
+
+        .gift::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            background-color: #ffeb3b;
+            left: 8px;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 20px gold);
+                transform: translateX(-50%) scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 15px gold) drop-shadow(0 0 30px gold);
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        @keyframes lightBulb {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px currentColor); }
+            50% { opacity: 0.7; filter: drop-shadow(0 0 2px currentColor); }
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="tree">
+            <div class="layer">
+                <div class="ball" style="bottom: 10px; left: -120px; background-color: #ff0000;"></div>
+                <div class="ball" style="bottom: 30px; left: -60px; background-color: #00ff00;"></div>
+                <div class="ball" style="bottom: 50px; left: 0px; background-color: #0000ff;"></div>
+                <div class="ball" style="bottom: 30px; right: -60px; background-color: #ffff00;"></div>
+                <div class="ball" style="bottom: 10px; right: -120px; background-color: #ff00ff;"></div>
+            </div>
+            <div class="layer">
+                <div class="ball" style="bottom: 10px; left: -100px; background-color: #00ffff;"></div>
+                <div class="ball" style="bottom: 40px; left: -30px; background-color: #ff8000;"></div>
+                <div class="ball" style="bottom: 40px; right: -30px; background-color: #8000ff;"></div>
+                <div class="ball" style="bottom: 10px; right: -100px; background-color: #0080ff;"></div>
+            </div>
+            <div class="layer">
+                <div class="ball" style="bottom: 20px; left: -80px; background-color: #ff0080;"></div>
+                <div class="ball" style="bottom: 40px; left: 0px; background-color: #80ff00;"></div>
+                <div class="ball" style="bottom: 20px; right: -80px; background-color: #ff8080;"></div>
+            </div>
+            <div class="layer">
+                <div class="ball" style="bottom: 15px; left: -60px; background-color: #8080ff;"></div>
+                <div class="ball" style="bottom: 35px; right: -20px; background-color: #80ff80;"></div>
+            </div>
+            <div class="layer">
+                <div class="ball" style="bottom: 10px; left: -40px; background-color: #ffff80;"></div>
+                <div class="ball" style="bottom: 25px; right: -10px; background-color: #ff80ff;"></div>
+            </div>
+            <div class="layer">
+                <div class="ball" style="bottom: 5px; left: -30px; background-color: #80ffff;"></div>
+                <div class="ball" style="bottom: 20px; right: -5px; background-color: #ff8080;"></div>
+            </div>
+            <div class="layer">
+                <div class="star"></div>
+                <div class="ball" style="bottom: 5px; left: -10px; background-color: #8080ff;"></div>
+            </div>
+            <div class="ribbon" style="bottom: 15%; transform: rotate(-3deg);"></div>
+            <div class="ribbon" style="bottom: 35%; transform: rotate(2deg);"></div>
+            <div class="ribbon" style="bottom: 55%; transform: rotate(-2deg);"></div>
+        </div>
+        <div class="gifts">
+            <div class="gift" style="height: 40px; background-color: #4CAF50;"></div>
+            <div class="gift" style="height: 32px; background-color: #2196F3;"></div>
+            <div class="gift" style="height: 36px; background-color: #FFC107;"></div>
+            <div class="gift" style="height: 28px; background-color: #9C27B0;"></div>
+            <div class="gift" style="height: 44px; background-color: #E91E63;"></div>
+            <div class="gift" style="height: 32px; background-color: #00BCD4;"></div>
+            <div class="gift" style="height: 40px; background-color: #FF5722;"></div>
+            <div class="gift" style="height: 36px; background-color: #795548;"></div>
+            <div class="gift" style="height: 28px; background-color: #607D8B;"></div>
+            <div class="gift" style="height: 44px; background-color: #3F51B5;"></div>
+            <div class="gift" style="height: 32px; background-color: #CDDC39;"></div>
+            <div class="gift" style="height: 40px; background-color: #009688;"></div>
+            <div class="gift" style="height: 36px; background-color: #FF9800;"></div>
+            <div class="gift" style="height: 28px; background-color: #8BC34A;"></div>
+            <div class="gift" style="height: 44px; background-color: #673AB7;"></div>
+            <div class="gift" style="height: 40px; background-color: #FF4081;"></div>
+            <div class="gift" style="height: 32px; background-color: #4CAF50;"></div>
+            <div class="gift" style="height: 36px; background-color: #FF5722;"></div>
+            <div class="gift" style="height: 28px; background-color: #9E9E9E;"></div>
+            <div class="gift" style="height: 44px; background-color: #FF4081;"></div>
+            <div class="gift" style="height: 32px; background-color: #03A9F4;"></div>
+            <div class="gift" style="height: 40px; background-color: #8BC34A;"></div>
+            <div class="gift" style="height: 36px; background-color: #FFC107;"></div>
+            <div class="gift" style="height: 28px; background-color: #795548;"></div>
+            <div class="gift" style="height: 44px; background-color: #9C27B0;"></div>
+        </div>
+    </div>
+</body>
+</html>
